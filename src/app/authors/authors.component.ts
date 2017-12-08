@@ -21,6 +21,11 @@ export class AuthorsComponent implements OnInit {
     return this._authors.length;
   }
 
+  public onSave($event) {
+    $event.stopPropagation();
+    console.log("Button was clicked", $event);
+  }
+
   public get authors() {
     return this._authors;
   }
