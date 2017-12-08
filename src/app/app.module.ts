@@ -11,6 +11,7 @@ import { CourseComponent } from './course/course.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthorComponent } from './author/author.component';
 import { EmailService } from './email.service';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { EmailService } from './email.service';
     CoursesComponent,
     CourseComponent,
     AuthorsComponent,
-    AuthorComponent
+    AuthorComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
