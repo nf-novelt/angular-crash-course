@@ -13,6 +13,7 @@ import { AuthorComponent } from './author/author.component';
 import { EmailService } from './email.service';
 import { TestComponent } from './test/test.component';
 import { SummaryPipe } from './summary.pipe';
+import { FavoriteComponent } from './favorite/favorite.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SummaryPipe } from './summary.pipe';
     AuthorsComponent,
     AuthorComponent,
     TestComponent,
-    SummaryPipe
+    SummaryPipe,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule,
