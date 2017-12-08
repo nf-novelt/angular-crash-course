@@ -26,6 +26,10 @@ export class AuthorsComponent implements OnInit {
     console.log("Button was clicked", $event);
   }
 
+  public onKeyUp($event) {
+      console.log("ENTER was pressed");
+  }
+
   public get authors() {
     return this._authors;
   }

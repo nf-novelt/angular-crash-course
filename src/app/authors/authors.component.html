@@ -10,3 +10,5 @@
     [class.active]="isActive"
     [style.backgroundColor]="isActive? 'blue' : 'white'"
     (click)="onSave($event)">Save</button>
+
+<input (keyup.enter)="onKeyUp()" />
