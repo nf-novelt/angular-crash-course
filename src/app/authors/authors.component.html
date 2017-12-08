@@ -11,4 +11,4 @@
     [style.backgroundColor]="isActive? 'blue' : 'white'"
     (click)="onSave($event)">Save</button>
 
-<input (keyup.enter)="onKeyUp()" />
+<input #email (keyup.enter)="onKeyUp(email.value)" />
