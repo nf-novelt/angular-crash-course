@@ -11,6 +11,7 @@ export class AuthorsComponent implements OnInit {
   private _authors: AuthorComponent[];
   private _authorsService: AuthorsService;
   isActive=true;
+  email="me@example.com";
 
   constructor(authorsService: AuthorsService) {
     this._authorsService = authorsService;
@@ -26,8 +27,8 @@ export class AuthorsComponent implements OnInit {
     console.log("Button was clicked", $event);
   }
 
-  public onKeyUp(email) {
-      console.log(email);
+  public onKeyUp() {
+      console.log(this.email);
   }
 
   public get authors() {
