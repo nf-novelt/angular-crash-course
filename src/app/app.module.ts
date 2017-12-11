@@ -1,3 +1,4 @@
+import { StringToTitlePipe } from './stringToTitle.pipe';
 import { AuthorsService } from './authors.service';
 import { CoursesService } from './courses.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +15,7 @@ import { EmailService } from './email.service';
 import { TestComponent } from './test/test.component';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { TitleCaseComponent } from './title-case/title-case.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { FavoriteComponent } from './favorite/favorite.component';
     AuthorComponent,
     TestComponent,
     SummaryPipe,
-    FavoriteComponent
+    StringToTitlePipe,
+    FavoriteComponent,
+    TitleCaseComponent
   ],
   imports: [
     BrowserModule,
