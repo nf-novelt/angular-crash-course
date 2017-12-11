@@ -1,4 +1,4 @@
 <p>
-    <span class="glyphicon glyphicon-heart glyphicon-heart-{{ isActive? 'active': 'not-active' }}" (click)="onClick()"></span>
+    <span class="glyphicon glyphicon-heart" [class.glyphicon-heart-active]="isActive" [class.glyphicon-heart-not-active]="!isActive" (click)="onClick()"></span>
     {{ likesCount }}
 </p>
