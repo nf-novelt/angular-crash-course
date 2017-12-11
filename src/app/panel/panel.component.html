@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <!-- Add injection point for the heading -->
+    <!-- The value of the select attribute can be a class, an id, or an element -->
+    <ng-content select=".heading"></ng-content>
+  </div>
+  <div class="panel-body">
+    <!-- Add injection point for the body -->
+    <ng-content select=".body"></ng-content>
+  </div>
+</div>

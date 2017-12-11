@@ -16,6 +16,7 @@ import { TestComponent } from './test/test.component';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TitleCaseComponent } from './title-case/title-case.component';
+import { PanelComponent } from './panel/panel.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { TitleCaseComponent } from './title-case/title-case.component';
     SummaryPipe,
     StringToTitlePipe,
     FavoriteComponent,
-    TitleCaseComponent
+    TitleCaseComponent,
+    PanelComponent
   ],
   imports: [
     BrowserModule,

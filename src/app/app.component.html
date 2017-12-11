@@ -4,3 +4,12 @@
 <app-test></app-test>
 <app-favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></app-favorite>
 <app-title-case></app-title-case>
+
+<br /><br />
+<app-panel>
+    <ng-container class="heading">Heading</ng-container>
+    <ng-container class="body">
+        <h2>Body</h2>
+        <p>Some content here...</p>
+    </ng-container>
+</app-panel>
