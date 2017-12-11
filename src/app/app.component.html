@@ -2,5 +2,5 @@
 <courses></courses>
 <app-authors></app-authors>
 <app-test></app-test>
-<app-favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged()"></app-favorite>
+<app-favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></app-favorite>
 <app-title-case></app-title-case>
