@@ -1,11 +1,11 @@
-<span class="glyphicon glyphicon-star{{ isEmpty ? '-empty' : ''}}" (click)="onClick()" ></span>
+<span class="glyphicon glyphicon-star{{ isFavorite ? '': '-empty'}}" (click)="onClick()" ></span>
 <fieldset>
   <legend>Using extrapolation</legend>
-  Value of isEmpty: {{ isEmpty }} <br />
+  Value of isFavorite: {{ isFavorite }} <br />
   Number of clicks: {{ nbOfClicks }}
 </fieldset>
 <fieldset>
     <legend>Using property binding</legend>
-    Value of isEmpty: <span [textContent]="isEmpty"></span><br />
+    Value of isFavorite: <span [textContent]="isFavorite"></span><br />
     Number of clicks: <span [textContent]="nbOfClicks"></span>
   </fieldset>

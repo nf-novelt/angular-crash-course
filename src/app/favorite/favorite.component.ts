@@ -6,13 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favorite.component.css']
 })
 export class FavoriteComponent implements OnInit {
-  isEmpty = true;
+  isFavorite = true;
   nbOfClicks = 0;
 
   constructor() { }
 
   onClick() {
-    this.isEmpty = !this.isEmpty;
+    this.isFavorite = !this.isFavorite;
     this.nbOfClicks ++;
   }
 
