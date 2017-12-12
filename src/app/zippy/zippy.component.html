@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+    <div class="panel-heading" [class.panel-heading-collapsed]="!showBody" (click)="onClickOnTitle()">
+      <span class="panel-title">{{ title }}</span>
+      <span class="glyphicon chevron"
+        [ngClass]="{
+          'glyphicon-chevron-up': showBody,
+          'glyphicon-chevron-down': !showBody
+        }"
+      ></span>
+    </div>
+    <div class="panel-body" *ngIf="showBody">
+      <ng-content></ng-content>
+    </div>
+  </div>

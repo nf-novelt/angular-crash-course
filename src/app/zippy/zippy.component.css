@@ -1,0 +1,24 @@
+.panel {
+    width: 40%;
+    margin-bottom:0px;
+}
+
+.panel-title {
+    font-weight: bold;
+}
+
+.panel-heading-collapsed {
+    background-color: white;
+}
+
+.panel-heading, .panel-body {
+    padding: 25px;
+}
+
+.panel-heading {
+    cursor: pointer;
+}
+
+.panel-heading .chevron {
+    float:right;
+}
