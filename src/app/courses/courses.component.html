@@ -10,8 +10,8 @@
   <ng-template #coursesList>
     <h1>List of courses</h1>
     <ul>
-        <li *ngFor="let course of courses">
-            {{ course }}
+        <li *ngFor="let course of courses; index as i">
+            {{ i }} - {{ course.name }}
         </li>
     </ul>
   </ng-template>
@@ -29,7 +29,7 @@
       <h1>List of courses</h1>
       <ul>
           <li *ngFor="let course of courses">
-              {{ course }}
+              {{ course.name }}
           </li>
       </ul>
     </div>
