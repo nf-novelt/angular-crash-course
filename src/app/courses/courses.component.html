@@ -2,15 +2,34 @@
 <img src="{{ imageUrl }}" width="200px" height="112px" />
 <img [src]="imageUrl2" width="200px" height="112px" />
 
-<div *ngIf="courses.length > 0; then coursesList else noCourse"></div>
-<ng-template #coursesList>
-  <h1>List of courses</h1>
-  <ul>
-      <li *ngFor="let course of courses">
-          {{ course }}
-      </li>
-  </ul>
-</ng-template>
-<ng-template #noCourse>  
-    <h1>No course yet</h1>
-</ng-template>
+<fieldset>
+  <legend>Using ngIf</legend>
+  <div *ngIf="courses.length > 0; then coursesList else noCourse"></div>
+  <ng-template #coursesList>
+    <h1>List of courses</h1>
+    <ul>
+        <li *ngFor="let course of courses">
+            {{ course }}
+        </li>
+    </ul>
+  </ng-template>
+  <ng-template #noCourse>  
+      <h2>No course yet</h2>
+  </ng-template>
+</fieldset>
+
+<fieldset>
+    <legend>Using hidden property</legend>
+    
+    <div [hidden]="courses.length == 0">
+      <h1>List of courses</h1>
+      <ul>
+          <li *ngFor="let course of courses">
+              {{ course }}
+          </li>
+      </ul>
+    </div>
+    <div [hidden]="courses.length > 0">
+        <h2>No course yet</h2>
+    </div>
+  </fieldset>
