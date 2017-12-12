@@ -1,8 +1,15 @@
 <h2>{{ title }}</h2>
 <img src="{{ imageUrl }}" width="200px" height="112px" />
 <img [src]="imageUrl2" width="200px" height="112px" />
-<ul>
-    <li *ngFor="let course of courses">
-        {{ course }}
-    </li>
-</ul>
+
+<div *ngIf="courses.length > 0">
+  <h1>List of courses</h1>
+  <ul>
+      <li *ngFor="let course of courses">
+          {{ course }}
+      </li>
+  </ul>
+</div>
+<div *ngIf="courses.length == 0">
+  No course yet
+</div>
