@@ -4,14 +4,18 @@
 
 <br /><br />
 
+<input type="button" (click) = "onLoadCourses()" value="Load courses" />
+
 <fieldset>
   <legend>Using ngIf</legend>
   <div *ngIf="courses.length > 0; then coursesList else noCourse"></div>
   <ng-template #coursesList>
     <h1>List of courses</h1>
     <ul>
-        <li *ngFor="let course of courses; index as i; even as isEven">
-            {{ i }} - {{ course.name }} <span *ngIf="isEven">(EVEN)</span> <input type="button" (click)="onClick_removeCourse(course)" value="remove" />
+        <li *ngFor="let course of courses; index as i; even as isEven; trackBy: trackCourse">
+            {{ i }} - {{ course.name }} <span *ngIf="isEven">(EVEN)</span>
+            <input type="button" (click)="onRemoveCourse(course)" value="remove" />
+            <input type="button" (click)="onChangeCourse(course)" value="update" />
         </li>
     </ul>
   </ng-template>
@@ -38,5 +42,5 @@
     </div>
 </fieldset>
 
-<input type="text" #newCourse (keyup.enter)="onClick_addCourse(newCourse.value)" />
-<input type="button" (click) = "onClick_addCourse(newCourse.value)" value="add course" />
+<input type="text" #newCourse (keyup.enter)="onAddCourse(newCourse.value)" />
+<input type="button" (click) = "onAddCourse(newCourse.value)" value="add course" />
