@@ -13,3 +13,23 @@
   <div *ngSwitchCase="'list'">List View Content</div>
   <div *ngSwitchDefault>Otherwise</div>
 </div>
+
+<br /><br />
+
+<button
+  [style.backgroundColor]= "canSave? 'blue':'gray'"
+  [style.color]="canSave? 'white': 'black'"
+  [style.fontweight]="canSave ? 'bold':'normal'"
+>
+Save (style binding)
+</button>
+
+
+<button
+  [ngStyle]="{
+    'backgroundColor': canSave? 'blue' : 'gray',
+    'color': canSave? 'white': 'black'
+  }"
+>
+Save (ngStyle)
+</button>
