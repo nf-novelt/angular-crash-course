@@ -2,6 +2,8 @@
 <img src="{{ imageUrl }}" width="200px" height="112px" />
 <img [src]="imageUrl2" width="200px" height="112px" />
 
+<br /><br />
+
 <fieldset>
   <legend>Using ngIf</legend>
   <div *ngIf="courses.length > 0; then coursesList else noCourse"></div>
@@ -17,6 +19,8 @@
       <h2>No course yet</h2>
   </ng-template>
 </fieldset>
+
+<br />
 
 <fieldset>
     <legend>Using hidden property</legend>
