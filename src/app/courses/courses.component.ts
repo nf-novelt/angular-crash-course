@@ -17,4 +17,8 @@ export class CoursesComponent {
     constructor(service: CoursesService) {
         this.courses = service.getCourses();
     }
+
+    onClick_addCourse(newCourse: string) {
+        this.courses.push(newCourse);
+    }
 }

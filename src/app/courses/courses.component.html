@@ -32,4 +32,7 @@
     <div [hidden]="courses.length > 0">
         <h2>No course yet</h2>
     </div>
-  </fieldset>
+</fieldset>
+
+<input type="text" #newCourse (keyup.enter)="onClick_addCourse(newCourse.value)" />
+<input type="button" (click) = "onClick_addCourse(newCourse.value)" value="add course" />
