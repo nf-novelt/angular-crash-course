@@ -1,4 +1,13 @@
-<span class="glyphicon glyphicon-star{{ isFavorite ? '': '-empty'}}" (click)="onClick()" ></span>
+<span class="glyphicon glyphicon-star{{ isFavorite ? '': '-empty'}}" (click)="onClick()" >star v1</span><br />
+<span class="glyphicon" [class.glyphicon-star]="isFavorite" [class.glyphicon-star-empty]="!isFavorite" (click)="onClick()">star class binding</span><br />
+<span class="glyphicon"
+  [ngClass]="{
+    'glyphicon-star': isFavorite,
+    'glyphicon-star-empty': !isFavorite
+  }"
+  (click)="onClick()"
+>star ngClass</span>
+
 <fieldset>
   <legend>Using extrapolation</legend>
   Value of isFavorite: {{ isFavorite }} <br />
@@ -9,3 +18,8 @@
     Value of isFavorite: <span [textContent]="isFavorite"></span><br />
     Number of clicks: <span [textContent]="nbOfClicks"></span>
   </fieldset>
+
+
+
+
+
