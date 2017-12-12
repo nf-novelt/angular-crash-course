@@ -8,7 +8,6 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { CourseComponent } from './course/course.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthorComponent } from './author/author.component';
 import { EmailService } from './email.service';
@@ -24,7 +23,6 @@ import { LikeComponent } from './like/like.component';
   declarations: [
     AppComponent,
     CoursesComponent,
-    CourseComponent,
     AuthorsComponent,
     AuthorComponent,
     TestComponent,
