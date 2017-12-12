@@ -1,3 +1,4 @@
+import { CoursesComponent } from './courses/courses.component';
 import { StringToTitlePipe } from './stringToTitle.pipe';
 import { AuthorsService } from './authors.service';
 import { CoursesService } from './courses.service';
@@ -7,7 +8,6 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthorComponent } from './author/author.component';

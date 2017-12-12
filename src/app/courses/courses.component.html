@@ -1,0 +1,8 @@
+<h2>{{ title }}</h2>
+<img src="{{ imageUrl }}" width="200px" height="112px" />
+<img [src]="imageUrl2" width="200px" height="112px" />
+<ul>
+    <li *ngFor="let course of courses">
+        {{ course }}
+    </li>
+</ul>
