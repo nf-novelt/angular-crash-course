@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
   text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor dapibus tempor. Pellentesque ullamcorper a neque quis egestas. Vivamus non felis in lectus fringilla interdum eu at mauris";
-
+  viewMode = 'map';
+  
   constructor() { }
 
   ngOnInit() {
