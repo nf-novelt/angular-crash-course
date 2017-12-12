@@ -11,7 +11,7 @@
     <h1>List of courses</h1>
     <ul>
         <li *ngFor="let course of courses; index as i; even as isEven">
-            {{ i }} - {{ course.name }} <span *ngIf="isEven">(EVEN)</span>
+            {{ i }} - {{ course.name }} <span *ngIf="isEven">(EVEN)</span> <input type="button" (click)="onClick_removeCourse(course)" value="remove" />
         </li>
     </ul>
   </ng-template>

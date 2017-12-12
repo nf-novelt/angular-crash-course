@@ -9,3 +9,7 @@ hr {
     border: 1px solid black;
     color: black;
 }
+
+body {
+    padding-left:10px;
+}

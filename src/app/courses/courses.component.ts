@@ -21,4 +21,10 @@ export class CoursesComponent {
     onClick_addCourse(newCourse: string) {
         this.courses.push({id: 999, name: newCourse});
     }
+
+    onClick_removeCourse(course) {
+        let index = this.courses.indexOf(course);
+        this.courses.splice(index, 1);
+    }
+    
 }
