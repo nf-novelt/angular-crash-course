@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
+  //would come from the server
+  contactMethods = [
+    { id:1, name: 'Email'},
+    { id:2, name: 'Phone'}
+  ];
 
   constructor() { }
 
