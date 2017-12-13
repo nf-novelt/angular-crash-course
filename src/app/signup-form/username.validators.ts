@@ -25,7 +25,6 @@ export class UsernameValidators {
 
     static shouldBeUnique (control: AbstractControl): Promise<ValidationErrors| null> {
         //Use a timer (setTimeout(...)) to simulate an HTTP call delay
-
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 if(control.value === 'mosh') {

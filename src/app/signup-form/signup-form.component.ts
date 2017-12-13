@@ -18,6 +18,18 @@ export class SignupFormComponent {
     password: new FormControl('', Validators.required)
   });
 
+  login() {
+    //the server would return a boolean via an authentication service
+    //let isValid = this.authService.login(this.form.value);
+    let isValid = false;
+    if(!isValid) {
+      //set the error at the form level, because we don't know which field (username or password)
+      this.form.setErrors ({
+        invalidLogin: true
+      });
+    }
+  }
+
   get username() {
     return this.form.get('username');
   }
