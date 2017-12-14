@@ -9,13 +9,15 @@ import { Component } from '@angular/core';
 })
 export class SignupFormComponent {
   form = new FormGroup({
-    username: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3),
-      UsernameValidators.cannotContainSpace
-    ],
-    UsernameValidators.shouldBeUnique),
-    password: new FormControl('', Validators.required)
+    account: new FormGroup({
+      username: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        UsernameValidators.cannotContainSpace
+      ],
+      UsernameValidators.shouldBeUnique),
+      password: new FormControl('', Validators.required)
+    })
   });
 
   login() {
@@ -31,10 +33,10 @@ export class SignupFormComponent {
   }
 
   get username() {
-    return this.form.get('username');
+    return this.form.get('account.username');
   }
 
   get password() {
-    return this.form.get('password');
+    return this.form.get('account.password');
   }
 }
