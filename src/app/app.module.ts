@@ -1,3 +1,4 @@
+import { PostService } from './services/post.service';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { CoursesComponent } from './courses/courses.component';
 import { StringToTitlePipe } from './stringToTitle.pipe';
@@ -59,7 +60,8 @@ import { PostsComponent } from './posts/posts.component';
   providers: [
     CoursesService,
     EmailService,
-    AuthorsService
+    AuthorsService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })
