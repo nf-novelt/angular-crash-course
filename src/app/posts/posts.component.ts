@@ -1,5 +1,7 @@
 import { PostService } from './../services/post.service';
 import { Component, OnInit } from '@angular/core';
+import { AppError } from '../common/app-error';
+import { NotFoundError } from '../common/not-found-error';
 
 @Component({
   selector: 'app-posts',
@@ -27,7 +29,7 @@ export class PostsComponent implements OnInit {
           this.posts.splice(0, 0, post);
           console.log(response.json());
       },
-        error => {
+        (error: AppError) => {
           alert('An unexpected error occured');
           console.log(error);
         }
@@ -36,11 +38,13 @@ export class PostsComponent implements OnInit {
   
   updatePost(post) {    
     this.service.updatePost(post)
-    .subscribe(response => {      
-      console.log(response.json());
-    }, error => {
-      alert('An unexpected error occured');
-      console.log(error);
+    .subscribe(
+      response => {      
+        console.log(response.json());
+      },
+      (error: AppError) => {
+        alert('An unexpected error occured');
+        console.log(error);
     })
   }
 
@@ -51,8 +55,8 @@ export class PostsComponent implements OnInit {
           let index = this.posts.indexOf(post);
           this.posts.splice(index, 1);
         },
-        (error: Response) => {
-          if(error.status === 404) {            
+        (error: AppError) => {
+          if(error instanceof NotFoundError) {            
             alert('This post has already been deleted');
             //or for example: this.form.setErrors(error.json());
           }
@@ -65,12 +69,14 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     this.service.getPosts()
-    .subscribe(response => {
-      this.posts = response.json();
-    }, error => {
-      alert('An unexpected error occured');
-      console.log(error);
-    })
+    .subscribe(
+      response => {
+        this.posts = response.json();
+      },
+      (error: AppError) => {
+        alert('An unexpected error occured');
+        console.log(error);
+      })
   }
 
 }
