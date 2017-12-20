@@ -18,17 +18,20 @@ export class PostsComponent implements OnInit {
     input.value = '';
 
     this.service.createPost(post)
-      .subscribe(response => {
-        post['id'] = response.json().id;
-        
-        //Add the post object at the top of this.posts.
-        //To add it at the end, use push()
-        this.posts.splice(0, 0, post);
-        console.log(response.json());
-      }, error => {
-        alert('An unexpected error occured');
-        console.log(error);
-      })
+      .subscribe(
+        response => {
+          post['id'] = response.json().id;
+          
+          //Add the post object at the top of this.posts.
+          //To add it at the end, use push()
+          this.posts.splice(0, 0, post);
+          console.log(response.json());
+      },
+        error => {
+          alert('An unexpected error occured');
+          console.log(error);
+        }
+    )
   }
   
   updatePost(post) {    
@@ -43,12 +46,20 @@ export class PostsComponent implements OnInit {
 
   deletePost(post) {
     this.service.deletePost(post.id)
-      .subscribe(response => {
-        let index = this.posts.indexOf(post);
-        this.posts.splice(index, 1);
-      }, error => {
-        alert('An unexpected error occured');
-        console.log(error);
+      .subscribe(
+        response => {
+          let index = this.posts.indexOf(post);
+          this.posts.splice(index, 1);
+        },
+        (error: Response) => {
+          if(error.status === 404) {            
+            alert('This post has already been deleted');
+            //or for example: this.form.setErrors(error.json());
+          }
+          else {
+            alert('An unexpected error occured');
+            console.log(error);
+          }
       })
   }
 
