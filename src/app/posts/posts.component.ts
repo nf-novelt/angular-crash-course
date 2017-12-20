@@ -2,6 +2,7 @@ import { PostService } from './../services/post.service';
 import { Component, OnInit } from '@angular/core';
 import { AppError } from '../common/app-error';
 import { NotFoundError } from '../common/not-found-error';
+import { BadInput } from '../common/bad-input';
 
 @Component({
   selector: 'app-posts',
@@ -30,8 +31,14 @@ export class PostsComponent implements OnInit {
           console.log(response.json());
       },
         (error: AppError) => {
-          alert('An unexpected error occured');
-          console.log(error);
+          if(error instanceof BadInput) {            
+            alert('This post has already been deleted');
+            //or for example: this.form.setErrors(error.originalError);
+          }
+          else {
+            alert('An unexpected error occured');
+            console.log(error);
+          }
         }
     )
   }
