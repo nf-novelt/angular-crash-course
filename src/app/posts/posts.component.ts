@@ -23,12 +23,12 @@ export class PostsComponent implements OnInit {
     this.service.create(post)
       .subscribe(
         response => {
-          post['id'] = response.json().id;
+          post['id'] = response.id;
           
           //Add the post object at the top of this.posts.
           //To add it at the end, use push()
           this.posts.splice(0, 0, post);
-          console.log(response.json());
+          console.log(response);
       },
         (error: AppError) => {
           if(error instanceof BadInput) {            
@@ -43,15 +43,15 @@ export class PostsComponent implements OnInit {
   updatePost(post) {    
     this.service.update(post)
     .subscribe(
-      response => {      
-        console.log(response.json());
+      updatedPost => {      
+        console.log(updatedPost);
       })
   }
 
   deletePost(post) {
-    this.service.delete(345)
+    this.service.delete(post.id)
       .subscribe(
-        response => {
+        deletedPost => {
           let index = this.posts.indexOf(post);
           this.posts.splice(index, 1);
         },
@@ -67,9 +67,8 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     this.service.getAll()
     .subscribe(
-      response => {
-        this.posts = response.json();
-      })
+      posts => this.posts = posts
+    )
   }
 
 }
