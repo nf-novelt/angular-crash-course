@@ -35,10 +35,7 @@ export class PostsComponent implements OnInit {
             alert('This post has already been deleted');
             //or for example: this.form.setErrors(error.originalError);
           }
-          else {
-            alert('An unexpected error occured');
-            console.log(error);
-          }
+          else throw error;
         }
     )
   }
@@ -48,15 +45,11 @@ export class PostsComponent implements OnInit {
     .subscribe(
       response => {      
         console.log(response.json());
-      },
-      (error: AppError) => {
-        alert('An unexpected error occured');
-        console.log(error);
-    })
+      })
   }
 
   deletePost(post) {
-    this.service.deletePost(post.id)
+    this.service.deletePost(345)
       .subscribe(
         response => {
           let index = this.posts.indexOf(post);
@@ -67,10 +60,7 @@ export class PostsComponent implements OnInit {
             alert('This post has already been deleted');
             //or for example: this.form.setErrors(error.json());
           }
-          else {
-            alert('An unexpected error occured');
-            console.log(error);
-          }
+          else throw error;
       })
   }
 
@@ -79,10 +69,6 @@ export class PostsComponent implements OnInit {
     .subscribe(
       response => {
         this.posts = response.json();
-      },
-      (error: AppError) => {
-        alert('An unexpected error occured');
-        console.log(error);
       })
   }
 
