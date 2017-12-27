@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  //could come from server:
+  post = {
+    title: "Title",
+    isFavorite: false
+  }
+
+  tweet = {
+    body: 'Here is the body of a tweet...',
+    isLiked: false,
+    likesCount: 89
+  }
+
   constructor() { }
 
-  ngOnInit() {
+  onFavoriteChanged(isFavorite) {
+    console.log("Favorite changed ", isFavorite);
   }
+
+  ngOnInit() {
+  } 
 
 }
