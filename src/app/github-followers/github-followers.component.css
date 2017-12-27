@@ -1,0 +1,21 @@
+.followers {
+    margin-top: 30px;
+}
+
+.followers li {
+    border: 0px;
+}
+
+.follower_content {
+    display:flex;
+}
+
+.follower_avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+}
+
+.follower_info {
+    margin-left: 20px;
+}
