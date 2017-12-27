@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AuthorsComponent } from './authors/authors.component';
@@ -66,7 +67,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      { path: '', component : HomeComponent },
+      { path: 'followers', component : GithubFollowersComponent },
+      { path: 'profile/:username', component : GithubProfileComponent },
+      { path: 'posts', component : PostsComponent },
+      { path: '**', component : NotFoundComponent } //any other not matching url
+    ])
   ],
   providers: [
     CoursesService,
