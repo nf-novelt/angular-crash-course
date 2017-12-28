@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GithubProfileComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap
@@ -17,6 +18,12 @@ export class GithubProfileComponent implements OnInit {
         let id = +params.get('id'); //the "+" permits to convert the value as a number
         console.log(id);//once you have the id, you could call the backend to retrieve the profile for example
       });
+  }
+
+  submit() {
+    this.router.navigate(['/followers'], {
+      queryParams: { page: 1, order: 'newest'}
+    });
   }
 
 }
