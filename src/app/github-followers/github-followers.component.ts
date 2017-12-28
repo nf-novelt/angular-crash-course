@@ -3,6 +3,7 @@ import { GithubFollowersService } from '../services/github-followers.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-github-followers',
@@ -17,21 +18,20 @@ export class GithubFollowersComponent implements OnInit {
   }
 
   ngOnInit() {
-    let obs = Observable.combineLatest([
+    Observable.combineLatest([
       this.route.paramMap, //first Observable
       this.route.queryParamMap //second Observable
-    ]);
-
-    obs.subscribe(combined => {
+    ])
+    .switchMap(combined => {
       let id = combined[0].get('id'); //combined[0] is the first Observable
       let page = combined[1].get('page');//combined[1] is the second Observable
 
-      //then call the server, etc...
-      this.service.getAll()
-        .subscribe(
+      //then call the server
+      return this.service.getAll();
+    })
+    .subscribe(
           followers => this.followers = followers
-        )      
-    });
+    );
 
     this.route.queryParamMap.subscribe( params => {
       console.log(params.get('page'));
